@@ -1,0 +1,13 @@
+
+@import "HeaderViewCSS.css";
+@import "FooterViewCSS.css";
+
+div #productQuantity{
+    width: 103px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.productImage img {
+    width: 480px;
+}
