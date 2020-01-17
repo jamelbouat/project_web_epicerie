@@ -25,6 +25,7 @@
 ?>
 
     <div class="container">
+        <div class="backward-link"><a class="text-dark" href="ShopProductView.php" title="Retour à la page produits"><- Retour à la page des produits</a></div>
 
         <div class="row m-5">
 
@@ -39,12 +40,8 @@
                 <div>888888</div>
                 <div>
                     <h6>Quantité</h6>
-                        <div class="d-flex d-row">
-                            <button id="decrementQuantity" class="btn btn-dark btn-sm rounded py-0 px-1 disabled"><i class="fas fa-minus"></i></button>
-                            <div id="productQuantity">1</div>
-                            <button id="incrementQuantity" class="btn btn-dark btn-sm rounded py-0 px-1"><i class="fas fa-plus"></i></button>
-                        </div>
-                        <input type="submit" class="btn btn-success my-2" value="Ajouter au panier">
+                    <?php include("AddRetrieveButtons.php") ?>
+                    <input type="submit" class="btn btn-success my-2" value="Ajouter au panier">
                 </div>
             </div>
 

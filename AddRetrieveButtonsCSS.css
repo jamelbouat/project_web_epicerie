@@ -1,0 +1,13 @@
+.addRemoveButtons{
+    width: 150px;
+}
+
+div #productQuantity{
+     width: 103px;
+     text-align: center;
+     font-size: 18px;
+ }
+
+.minusButton:hover, .plusButton:hover {
+    background: #000;
+}

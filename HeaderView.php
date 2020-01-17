@@ -4,9 +4,11 @@
 
     <div class="bg-dark d-flex justify-content-between">
 
-        <div class="d-flex d-row text-white p-2">
-            <span class="fas fa-store-alt fa-2x"></span>
-            <span class="p-2 font-weight-bold">Rennes Épicerie</span>
+        <div class="logoLink d-flex d-row text-white p-2">
+            <a href="ShopProductView.php">
+                <span class="fas fa-store-alt fa-2x"></span>
+                <span class="p-2 font-weight-bold">Rennes Épicerie</span>
+            </a>
         </div>
 
         <div class="popover-link d-flex d-row text-white">

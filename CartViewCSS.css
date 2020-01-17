@@ -1,2 +1,7 @@
 @import "HeaderViewCSS.css";
 @import "FooterViewCSS.css";
+@import "AddRetrieveButtonsCSS.css";
+
+.buttonsPosition div{
+    margin:auto;
+}

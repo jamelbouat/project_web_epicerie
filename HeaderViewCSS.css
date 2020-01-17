@@ -1,9 +1,9 @@
-.popover-link a {
+.popover-link a, .logoLink a {
     text-decoration: none;
     color: white;
 }
 
-.popover-link a:hover {
+.popover-link a:hover, .logoLink a:hover {
     opacity: 0.5;
     text-decoration: none;
     color: white;
