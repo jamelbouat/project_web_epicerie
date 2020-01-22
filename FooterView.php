@@ -1,4 +1,9 @@
 
+<?php
+    // Never display this current page, redirect to ShopProductView
+    strpos($_SERVER["SCRIPT_NAME"], "FooterView.php" ) && header("location:AllProductsView.php");
+?>
+
 <footer>
     <div class="media bg-dark justify-content-center">
         <a href="https://www.facebook.com/" target="_blank"><span class="fab fa-facebook fa-2x"></span></a>

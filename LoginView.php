@@ -1,4 +1,13 @@
 
+<?php
+    session_start();
+
+    // User already logged, redirect to his account view
+    if (isset($_SESSION["id"])) {
+        header("location:MyAccountView.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -15,7 +24,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="LoginViewCSS.css">
-    <script src="HeaderViewScript.js"></script>
+    <script src="LoginViewScript.js"></script>
     <title>Connexion</title>
 </head>
 <body>
@@ -23,30 +32,26 @@
     include("HeaderView.php");
 ?>
     <div class="container border p-5 my-5 w-50 shadow rounded">
-
         <h1 class="text-center">Connexion</h1>
-
-        <form action="">
+        <?php if (!isset($_SESSION["id"]) && isset($_SESSION["successMessage"])) { ?><h5 class="text-success text-center"><?php echo $_SESSION["successMessage"]; ?></h5><?php } ;?>
+        <form action="LoginController.php" method="POST">
             <div class="m-3 mx-auto">
                 <label for="email">Email :</label>
-                <input type="text" class="form-control" placeholder="Email" id="email">
+                <input name="email" type="text" class="form-control" placeholder="Email" id="email">
             </div>
-
             <div class="m-3 mx-auto">
                 <label for="pwd">Mot de passe :</label>
-                <input type="password" class="form-control" placeholder="Mot de passe" id="pwd">
+                <input name="pwd" type="password" class="form-control" placeholder="Mot de passe" id="pwd">
             </div>
-
             <div class="m-3 mx-auto">
                 <input type="submit" class="form-control btn btn-primary" value="Connexion">
             </div>
-
         </form>
+        <?php if (!empty(isset($_GET["err"]))) { ?> <div class="text-danger"><?php echo $_GET["err"]; ?></div> <?php }; ?>
     </div>
-
 <?php
     include("FooterView.php");
+    unset($_SESSION["successMessage"]);
 ?>
-
 </body>
 </html>

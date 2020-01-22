@@ -1,3 +1,9 @@
+
+<?php
+    // Never display this current page, redirect to ShopProductView
+    strpos($_SERVER["SCRIPT_NAME"], "ListedProductView.php" ) && header("location:AllProductsView.php");
+?>
+
 <div class="listedProduct border bg-white p-2 rounded mb-2">
     <div class="row">
         <div class="productImage col-lg-5" title="Cliquer sur l'image pour plus de détails sur le produit">

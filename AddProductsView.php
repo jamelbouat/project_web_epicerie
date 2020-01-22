@@ -1,3 +1,9 @@
+
+<?php
+    session_start();
+    !isset($_SESSION["adminFlag"]) && header("location:AllProductsView.php");
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,8 +22,10 @@
 </head>
 <body>
     <div class="container my-5">
+        <div class="text-right">
+            <a href="LogoutAdmin.php"><button class="btn btn-danger">Déconnexion</button></a>
+        </div>
         <form action="">
-
             <div class="row m-3">
                 <div class="col-md">
                     <label for="productName">Nom du produit :</label>
@@ -64,7 +72,6 @@
                     <button type="submit" class="btn btn-success">Ajouter à la boutique</button>
                 </div>
             </div>
-
         </form>
     </div>
 </body>

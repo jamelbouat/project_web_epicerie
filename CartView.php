@@ -1,4 +1,8 @@
 
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -24,7 +28,7 @@
 include("HeaderView.php");
 ?>
     <div class="container">
-        <div class="backward-link"><a class="text-dark" href="ShopProductView.php" title="Retour à la page produits"><- Retour à la page des produits</a></div>
+        <div class="backward-link"><a class="text-dark" href="AllProductsView.php" title="Retour à la page produits"><- Retour à la page des produits</a></div>
         <h1 class="text-center">Mon panier</h1>
         <div class="border border-light rounded shadow p-2 my-3">
             <div class="text-right py-2">

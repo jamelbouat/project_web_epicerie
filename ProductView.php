@@ -1,4 +1,8 @@
 
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,23 +20,18 @@
 
     <link rel="stylesheet" type="text/css" href="ProductViewCSS.css">
     <script src="ProductViewScript.js"></script>
-    <script src="HeaderViewScript.js"></script>
     <title>Présentation produit</title>
 </head>
 <body>
 <?php
     include("HeaderView.php");
 ?>
-
     <div class="container">
-        <div class="backward-link"><a class="text-dark" href="ShopProductView.php" title="Retour à la page produits"><- Retour à la page des produits</a></div>
-
+        <div class="backward-link"><a class="text-dark" href="AllProductsView.php" title="Retour à la page produits"><- Retour à la page des produits</a></div>
         <div class="row m-5">
-
             <div class="col-md-6 productImage" data-toggle="modal" data-target="#myModal">
                 <img src="images/pont_neuf.jpg" alt="image non affichée">
             </div>
-
             <div class="col-md-6 border-secondary border-left pl-5">
                 <h2>Description du produit</h2>
                 <div>blabla</div>
@@ -44,14 +43,10 @@
                     <input type="submit" class="btn btn-success my-2" value="Ajouter au panier">
                 </div>
             </div>
-
         </div>
-
     </div>
-
 <?php
     include("FooterView.php");
 ?>
-
 </body>
 </html>

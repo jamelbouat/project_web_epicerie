@@ -1,3 +1,4 @@
+
 <?php
     session_start();
 ?>
@@ -17,8 +18,8 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="ShopProductViewCSS.css">
-    <script src="ShopProductViewScript.js"></script>
+    <link rel="stylesheet" type="text/css" href="AllProductsViewCSS.css">
+    <script src="AllProductsViewScript.js"></script>
     <title>Nos produits</title>
 </head>
 <body>

@@ -1,4 +1,12 @@
 
+<?php
+    session_start();
+    // User already logged, redirect to his account view
+    if (isset($_SESSION["id"])) {
+        header("location:MyAccountView.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -15,7 +23,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="NewAccountViewCSS.css">
-    <script src="HeaderViewScript.js"></script>
+    <script src="NewAccountViewScript.js"></script>
     <title>Inscription</title>
 </head>
 <body>
@@ -24,64 +32,76 @@
 ?>
     <div class="container border p-2 my-5 w-75 shadow rounded">
         <h1 class="text-center">Création de compte</h1>
-
-        <form action="">
+        <form action="NewAccountController.php" method="POST">
             <div class="row m-3">
                 <div class="col-md">
                     <label for="lastName">Nom :</label>
-                    <input type="text" class="form-control" placeholder="Nom" id="lastName">
+                    <input name="lastName" type="text" class="form-control" placeholder="Nom" id="lastName">
+                    <?php if (!empty(isset($_GET["err1"]))) { ?> <div class="text-danger"><?php echo $_GET["err1"]; ?></div> <?php }?>
                 </div>
                 <div class="col-md">
                     <label for="firstName">Prénom :</label>
-                    <input type="text" class="form-control" placeholder="Prénom" id="firstName">
+                    <input name="firstName" type="text" class="form-control" placeholder="Prénom" id="firstName">
+                    <?php if (!empty(isset($_GET["err2"]))) { ?> <div class="text-danger"><?php echo $_GET["err2"]; ?></div> <?php }?>
                 </div>
             </div>
-
             <div class="row m-3">
                 <div class="col-md">
                     <label for="address">Adresse (N° et rue) :</label>
-                    <input type="text" class="form-control" placeholder="Numéro et nom de rue" id="address">
+                    <input name="address" type="text" class="form-control" placeholder="Numéro et nom de rue" id="address">
+                    <?php if (!empty(isset($_GET["err3"]))) { ?> <div class="text-danger"><?php echo $_GET["err3"]; ?></div> <?php }?>
                 </div>
                 <div class="col-md">
                     <label for="city">Ville :</label>
-                    <input type="text" class="form-control" placeholder="Ville" id="city">
+                    <input name="city" type="text" class="form-control" placeholder="Ville" id="city">
+                    <?php if (!empty(isset($_GET["err4"]))) { ?> <div class="text-danger"><?php echo $_GET["err4"]; ?></div> <?php }?>
                 </div>
             </div>
-
+            <div class="row m-3">
+                <div class="col-md">
+                    <label for="phone">Numéro de téléphone :</label>
+                    <input name="phone" type="text" class="form-control" placeholder="Numéro de téléphone" id="phone">
+                    <?php if (!empty(isset($_GET["err5"]))) { ?> <div class="text-danger"><?php echo $_GET["err5"]; ?></div> <?php }?>
+                </div>
+                <div class="col-md">
+                    <label for="postalCode">Code postal :</label>
+                    <input name="zipCode" type="text" class="form-control" placeholder="Code postal" id="postalCode">
+                    <?php if (!empty(isset($_GET["err6"]))) { ?> <div class="text-danger"><?php echo $_GET["err6"]; ?></div> <?php }?>
+                </div>
+            </div>
             <div class="row m-3">
                 <div class="col-md">
                     <label for="email">Adresse email:</label>
-                    <input type="email" class="form-control" placeholder="Adresse email" id="email">
+                    <input name="email" type="email" class="form-control" placeholder="Adresse email" id="email">
+                    <?php if (!empty(isset($_GET["err7"]))) { ?> <div class="text-danger"><?php echo $_GET["err7"]; ?></div> <?php }?>
                 </div>
                 <div class="col-md">
                     <label for="emailConfirm">Confirmation adresse email :</label>
-                    <input type="email" class="form-control" placeholder="Confirmation adresse email" id="emailConfirm">
+                    <input name="confirmEmail" type="email" class="form-control" placeholder="Confirmation adresse email" id="emailConfirm">
+                    <?php if (!empty(isset($_GET["err8"]))) { ?> <div class="text-danger"><?php echo $_GET["err8"]; ?></div> <?php }?>
                 </div>
             </div>
-
             <div class="row m-3">
                 <div class="col-md">
                     <label for="pwd">Mot de passe :</label>
-                    <input type="password" class="form-control" placeholder="Mot de passe" id="pwd">
+                    <input name="pwd" type="password" class="form-control" placeholder="Mot de passe" id="pwd">
+                    <?php if (!empty(isset($_GET["err9"]))) { ?> <div class="text-danger"><?php echo $_GET["err9"]; ?></div> <?php }?>
                 </div>
                 <div class="col-md">
-                    <label for="pwdConfirm">Confirmation du mot de passe :</label>
-                    <input type="password" class="form-control" placeholder="Confirmation du mot de passe" id="pwdConfirm">
+                    <label for="confirmPwd">Confirmation du mot de passe :</label>
+                    <input name="confirmPwd" type="password" class="form-control" placeholder="Confirmation du mot de passe" id="confirmPwd">
+                    <?php if (!empty(isset($_GET["err10"]))) { ?> <div class="text-danger"><?php echo $_GET["err10"]; ?></div> <?php }?>
                 </div>
             </div>
-
             <div class="row m-3">
                 <div class="col-md-6">
                     <input type="submit" class="form-control btn btn-primary" value="Créer un compte">
                 </div>
             </div>
         </form>
-
     </div>
-
 <?php
     include("FooterView.php");
 ?>
-
 </body>
 </html>
