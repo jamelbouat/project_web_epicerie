@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -20,22 +23,22 @@
 </head>
 <body>
 <?php
-include("HeaderView.php");
+    include("HeaderView.php");
 ?>
-
     <div class="container">
        <div class="row my-5 shadow border">
 
            <div class="col-3 p-5 bg-secondary">
                <div class="selectProductType form-group my-5">
-                  <select class="custom-select" name="selectProductType">
-                      <option value="" selected>- Type de produits -</option>
-                      <option value="">Boissons</option>
-                      <option value="">Fruits</option>
-                      <option value="">Légumes</option>
-                      <option value="">Viandes</option>
-                      <option value="">Produits laitiers</option>
-                  </select>
+                   <label for="productType"><h5>Sélectionner le type du produit :</h5></label>
+                   <select class="custom-select" name="selectProductType" id="productType">
+                       <option value="" selected>- Type du produit -</option>
+                       <option value="">Boisson</option>
+                       <option value="">Fruit</option>
+                       <option value="">Légume</option>
+                       <option value="">Viande</option>
+                       <option value="">Produit laitier</option>
+                   </select>
                </div>
                <div class="my-5">
                    <h5>Sélection de produits</h5>
@@ -65,20 +68,14 @@ include("HeaderView.php");
                        </div>
                    </form>
                </div>
-
            </div>
-
            <div class="col-9 bg-light p-5">
                <?php include("ListedProductView.php"); ?>
            </div>
-
        </div>
     </div>
-
-
 <?php
-include("FooterView.php");
+    include("FooterView.php");
 ?>
-
 </body>
 </html>
