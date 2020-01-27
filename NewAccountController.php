@@ -8,8 +8,6 @@
 try {
     require("DataBaseAccess.php");
 
-    $err1 = ""; $err2 = ""; $err3 = ""; $err4 = ""; $err5 = ""; $err6 = ""; $err7 = ""; $err8 = ""; $err9 = "";
-
     $regex_spaces_letters = "/^[a-zA-Z]*$/"; // regex accepts only spaces and/or letters
     $regex_zip_code = "/^[0-9]{5}$/";  // regex, accepts only a number of 5 digits
     $regex_phone_number = "/^[0]{1}[0-9]{9}$/";  // regex, begin with a 0 and followed with 9 digits
@@ -117,44 +115,57 @@ try {
         // Email verification
         if (checkEmptyInput($email)) {
             $err7 = "Erreur email : Email requis";
+            $err8 = "Erreur email : confirmation email requise !";
         } else {
-            $email = checkInputData($email);
-            // Verify email if exists
-            $req = "SELECT * FROM customers WHERE customerEmail= ?";
-            $response = $conn-> prepare($req);
-            $response -> execute(array($email));
-            $checking_email = $response->rowCount();
-            if($checking_email === 0){
-                if ($email === $confirmEmail){
-                    $checkedValue += 1;
-                } else {
-                    $err8 = "Erreur email : email à confirmer";
-                }
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $err7 = "Erreur email : format invalide";
+                $err8 = "Erreur email : confirmation email requise !";
             } else {
-                $err7 = "Erreur email: email déjà utilisé !";
+                $email = checkInputData($email);
+                // Verify email if it exists in the DB
+                $req = "SELECT * FROM customers WHERE customerEmail= ?";
+                $response = $conn-> prepare($req);
+                $response -> execute(array($email));
+                $checking_email = $response->rowCount();
+                if($checking_email === 0){
+                    if ($email === $confirmEmail){
+                        $checkedValue += 1;
+                    } else {
+                        $err8 = "Erreur email : confirmation email requise !";
+                    }
+                } else {
+                    $err7 = "Erreur email: email déjà utilisé !";
+                    $err8 = "Erreur email : confirmation email requise !";
+                }
             }
         }
 
         // Password verification
         if (checkEmptyInput($pwd)) {
-            $err9 = "Erreur mot de passe vide : mot de passe requis";
+            $err9 = "Erreur mot de passe : mot de passe requis";
+            $err10 = "Erreur mot de passe: confirmation mot de passe requise !";
         } else {
             if ($pwd === $confirmPwd){
                 $pwd = checkInputData($pwd);
                 // Password hashing
                 $pwd = password_hash($pwd, PASSWORD_DEFAULT);
                 $checkedValue += 1;
+                $err9 = "Resaissez votre mot de passe";
+                $err10 = "Reconfirmez votre mot de passe";
             } else {
-                $err10 = "Erreur mot de passe: mot de passe à confirmer !";
+                $err9 = "Erreur mot de passe : mot de passe requis";
+                $err10 = "Erreur mot de passe: confirmation mot de passe requise !";
             }
         }
 
-        // 8 inputs are verified
+        // 8 form inputs are verified
         if ($checkedValue === 8) {
             addToDataBase($firstName,$lastName,$address,$city,$phone,$zipCode,$email,$pwd);
             $_SESSION["successMessage"] = "Vous êtes bien inscrit, connectez-vous au-dessous";
         } else {
-            header("location:NewAccountView.php?err1=$err1&err2=$err2&err3=$err3&err4=$err4&err5=$err5&err6=$err6&err7=$err7&err8=$err8&err9=$err9&err10=$err10");
+            $queryString = "err1=$err1&err2=$err2&err3=$err3&err4=$err4&err5=$err5&err6=$err6&err7=$err7&err8=$err8&err9=$err9&err10=$err10".
+             "&lastName=$lastName&firstName=$firstName&address=$address&city=$city&phone=$phone&zipCode=$zipCode&confirmEmail=$confirmEmail&email=$email";
+            header("location:NewAccountView.php?$queryString");
         }
     }
 }

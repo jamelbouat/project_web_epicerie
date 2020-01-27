@@ -1,6 +1,7 @@
 
 <?php
     session_start();
+    include("AllProductsController.php");
 ?>
 
 <!DOCTYPE html>
@@ -70,9 +71,11 @@
                    </form>
                </div>
            </div>
+
            <div class="col-9 bg-light p-5">
-               <?php include("ListedProductView.php"); ?>
+               <?php viewAllProducts(); ?>
            </div>
+
        </div>
     </div>
 <?php

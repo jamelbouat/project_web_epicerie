@@ -9,3 +9,7 @@ div.list-group-item {
 .list-group-item div:first-child {
     width: 120px;
 }
+
+div.container {
+    margin: 80px auto 220px;
+}

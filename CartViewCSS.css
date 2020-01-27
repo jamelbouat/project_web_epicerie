@@ -6,3 +6,7 @@
 .buttonsPosition div{
     margin:auto;
 }
+
+div.container {
+    margin: 50px auto 200px;
+}

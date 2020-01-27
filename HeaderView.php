@@ -36,9 +36,13 @@
                             <h6>Vous avez déjà un compte ?</h6>
                             <a href="LoginView.php">Connectez-vous ici</a>
                         </div>
-                        <div>
+                        <div class="border-bottom mb-3">
                             <h6>Vous êtes un nouveau utilisateur ?</h6>
                             <a href="NewAccountView.php">Inscrivez-vous ici</a>
+                        </div>
+                        <div>
+                            <h6>Vous êtes administrateur ?</h6>
+                            <a href="AdminAccountView.php">Cliquez-ici</a>
                         </div>
                         <?php
                             } else {
@@ -53,7 +57,7 @@
                             <a href="MyAccountView.php">Cliquez-ici</a>
                         </div>
                         <div class="text-center">
-                            <a href="Logout.php">Se déconnecter</a>
+                            <a href="LogoutController.php">Se déconnecter</a>
                         </div>
                         <?php
                             }

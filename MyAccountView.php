@@ -4,7 +4,7 @@
     // User not already logged, redirect to his login view
     if (!isset($_SESSION["id"])) {
         header("location:LoginView.php");
-}
+    }
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="MyAccountCSS.css">
+    <link rel="stylesheet" type="text/css" href="MyAccountViewCSS.css">
     <script src="MyAccountViewScript.js"></script>
     <title>Mon compte</title>
 </head>
@@ -30,7 +30,7 @@
 <?php
     include("HeaderView.php");
 ?>
-    <div class="container mx-auto my-5">
+    <div class="container mx-auto">
         <div class="float-right">
             <a href="AllProductsView.php"><button class="btn btn-success">Commcencer mes achats</button></a>
         </div>

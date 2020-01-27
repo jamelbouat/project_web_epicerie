@@ -17,62 +17,64 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-    <script src="AllProductsViewScript.js"></script>
+    <script src="AddProductsViewScript.js"></script>
     <title>Ajout produits</title>
 </head>
 <body>
     <div class="container my-5">
         <div class="text-right">
-            <a href="LogoutAdmin.php"><button class="btn btn-danger">Déconnexion</button></a>
+            <a href="LogoutAdminController.php"><button class="btn btn-danger">Déconnexion</button></a>
         </div>
-        <form action="">
+
+        <div>
             <div class="row m-3">
                 <div class="col-md">
                     <label for="productName">Nom du produit :</label>
-                    <input type="text" class="form-control" id="productName">
+                    <input type="text" class="productData form-control" id="productName">
                 </div>
                 <div class="col-md">
                     <label for="productPrice">Prix du produit :</label>
-                    <input type="text" class="form-control" id="productPrice">
+                    <input type="text" class="productData form-control" id="productPrice">
                 </div>
             </div>
             <div class="row m-3">
                 <div class="col-md">
                     <label for="productType">Sélectionner le type du produit :</label>
-                    <select class="custom-select" id="productType">
-                            <option value="" selected>- Type du produit -</option>
-                            <option value="">Boisson</option>
-                            <option value="">Fruit</option>
-                            <option value="">Légume</option>
-                            <option value="">Viande</option>
-                            <option value="">Produit laitier</option>
+                    <select class="productData custom-select" id="productType">
+                            <option value="">- Sélection type -</option>
+                            <option value="drink">Boisson</option>
+                            <option value="fruit">Fruit</option>
+                            <option value="vegetable">Légume</option>
+                            <option value="meat">Viande</option>
+                            <option value="dairy">Produit laitier</option>
                     </select>
                 </div>
                 <div class="col-md">
                     <label for="productScale">Produit vendu :</label>
-                    <select class="custom-select" id="productScale">
-                        <option value="">À l'unité</option>
-                        <option value="">Au kilo</option>
-                        <option value="">Au litre</option>
+                    <select class="productData custom-select" id="productScale">
+                        <option value="">- Sélectionner -</option>
+                        <option value="unit">À l'unité</option>
+                        <option value="kilo">Au kilo</option>
+                        <option value="liter">Au litre</option>
                     </select>
                 </div>
             </div>
             <div class="row m-3">
                 <div class="col-md">
                     <label for="description">Description :</label>
-                    <textarea class="form-control" rows="5" id="description" name="text"></textarea>
+                    <textarea class="productData form-control" rows="5" id="description" name="text"></textarea>
                 </div>
                 <div class="col-md">
                     <label for="productImage">Charger une image :</label>
-                    <input type="file" class="form-control-file border" id="productImage">
+                    <input type="file" class="productData form-control" id="productImage">
                 </div>
             </div>
             <div class="row m-3">
                 <div class="col-md">
-                    <button type="submit" class="btn btn-success">Ajouter à la boutique</button>
+                    <button id="onAddEvent" class="btn btn-success">Ajouter à la boutique</button>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </body>
 </html>

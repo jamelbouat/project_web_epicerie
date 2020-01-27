@@ -39,6 +39,9 @@ $("document").ready(() => {
                 for (let data of notModifiedData) {
                     $(data).text($(dataToModify[inc++]).val());
                 }
+            },
+            error: function(xhr){
+                alert("Une erreur est survenue: " + xhr.status + " " + xhr.statusText);
             }
         })
     });

@@ -18,6 +18,7 @@
     <title>Connexion admin</title>
 </head>
 <body>
+    <div class="backward-link"><a class="text-dark" href="AllProductsView.php" title="Retour à la page produits"><- Retour à la page des produits</a></div>
     <div class="container border p-5 my-5 w-50 shadow rounded">
         <h1 class="text-center text-info">Connexion admin</h1>
         <form action="AdminAccountController.php" method="POST">
