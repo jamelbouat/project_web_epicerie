@@ -33,6 +33,7 @@ $("document").ready(() => {
                 phone   : $(dataToModify[3]).val()
             },
             success : function (response) {
+                
                 // On data update success, the values displayed on the page takes simultaneously
                 // the values of the updated inputs fields
                 let inc = 0;

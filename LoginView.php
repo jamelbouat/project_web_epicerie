@@ -34,6 +34,7 @@
     <div class="container border p-5 w-50 shadow rounded">
         <h1 class="text-center">Connexion</h1>
         <?php if (!isset($_SESSION["id"]) && isset($_SESSION["successMessage"])) { ?><h5 class="text-success text-center"><?php echo $_SESSION["successMessage"]; ?></h5><?php } ;?>
+        <?php if (!empty($_SESSION["requiredLoginMessage"])) { ?><h5 class="text-danger text-center"><?php echo $_SESSION["requiredLoginMessage"]; ?></h5><?php } ;?>
         <form action="LoginController.php" method="POST">
             <div class="m-3 mx-auto">
                 <label for="email">Email :</label>

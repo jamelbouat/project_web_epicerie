@@ -2,3 +2,7 @@
 @import "HeaderViewCSS.css";
 @import "FooterViewCSS.css";
 @import "ListedProductCSS.css";
+
+div.container {
+    margin: 80px auto 240px;
+}

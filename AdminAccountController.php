@@ -23,7 +23,7 @@ try {
 
             if ($data) {
                 $_SESSION["adminFlag"] = true;
-                header("Location:AddProductsView.php");
+                header("Location:AddNewProductsView.php");
             } else {
                 $err = "Erreur d'identification. réessayez svp !";
                 header("location:AdminAccountView.php?error=$err");

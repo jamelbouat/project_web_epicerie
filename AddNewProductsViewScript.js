@@ -34,7 +34,7 @@ $("document").ready(() => {
 
         // Add the new product, by sending the values of the fields inputs to the processing php file
         $.ajax({
-            url    : "AddProductsController.php",
+            url    : "AddNewProductsController.php",
             type : "post",
             contentType: false,
             processData: false,

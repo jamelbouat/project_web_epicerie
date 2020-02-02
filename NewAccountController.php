@@ -3,7 +3,7 @@
     session_start();
 
     // Never display the current page, redirect to AllProductsView
-    (isset($_SESSION["id"])) && header("location:AllProductsView.php");
+    (isset($_SESSION["id"])) && header("location:index.php");
 
 try {
     require("DataBaseAccess.php");

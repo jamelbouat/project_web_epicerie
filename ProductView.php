@@ -12,8 +12,10 @@
     $productDescription = checkFieldData("productDescription");
     $productType = checkFieldData("productType");
     $productImage = checkFieldData("productImage");
+    $productId = $_GET["productId"];
 
-    empty($productName) || empty($productScale) || empty($productPrice) || empty($productDescription) || empty($productType) || empty($productImage)
+    // Data to be send to the cart controller when adding a product
+    $req = "productId=$productId&productName=$productName&productScale=$productScale&productPrice=$productPrice&productImage=$productImage"
 ?>
 
 <!DOCTYPE html>
@@ -33,14 +35,14 @@
 
     <link rel="stylesheet" type="text/css" href="ProductViewCSS.css">
     <script src="ProductViewScript.js"></script>
-    <title>Présentation produit</title>
+    <title><?php echo $productName; ?></title>
 </head>
 <body>
 <?php
     include("HeaderView.php");
 ?>
     <div class="container">
-        <div class="backward-link"><a class="text-dark" href="AllProductsView.php" title="Retour à la page produits"><- Retour à la page des produits</a></div>
+        <div class="backward-link"><a class="text-dark" href="index.php" title="Retour à la page produits"><- Retour à la page des produits</a></div>
         <div class="row m-5">
             <div class="col-md-6 productImage" data-toggle="modal" data-target="#myModal">
                 <img src="<?php echo $productImage; ?>" alt=":Image non affichée">
@@ -55,9 +57,11 @@
                     <div><?php echo $productPrice; ?></div>
                 </div>
                 <div class="border p-2">
-                    <h6>Quantité</h6>
-                    <?php include("AddRetrieveButtons.php") ?>
-                    <input type="submit" class="btn btn-success my-2" value="Ajouter au panier">
+                    <form action="AddProductToCartController.php?operation=addProduct&<?php echo $req; ?>" method="POST">
+                        <h6>Quantité</h6>
+                        <?php include("IncrementDecrementButtons.php") ?>
+                        <button type="submit" class="btn btn-success my-2">Ajouter au panier</button>
+                    </form>
                 </div>
                 <div class="border p-2">
                     <h4>Description du produit</h4>

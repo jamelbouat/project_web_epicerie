@@ -3,5 +3,5 @@
 @import "FooterViewCSS.css";
 
 div.container {
-    margin: 80px auto 200px;
+    margin: 800px auto 400px !important;
 }

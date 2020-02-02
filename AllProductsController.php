@@ -1,44 +1,49 @@
 
 <?php
-    include("ListedProductView.php");
+    session_start();
 
-try {
-        require("DataBaseAccess.php");
-
-        function retrieveProductsData($req) {
-            global $conn;
-            // Products table preparation
-            $response = $conn -> prepare($req);
-            $response -> execute();
-            return $response;
-        }
-
-        function viewAllProducts() {
-            $req = "SELECT * from products";
-            $result = retrieveProductsData($req);
-
-            if (!empty($result)) {
-                foreach ($result as $row) {
-                    $productName = $row["productName"];
-                    $productScale = $row["productScale"];
-                    $productPrice = $row["productPrice"];
-                    $productDescription = $row["productDescription"];
-                    $productType = $row["productType"];
-                    $productImage = "images/".$row["productImage"];
-
-                    listedProductView($productName, $productScale, $productPrice, $productDescription, $productType, $productImage);
-                }
-            } else {
-                echo "Erreur : les produits ne s'affichent pas !";
+    // Get the all product prices and put them in array to use it further for sorting them
+    $orderPrice = array();
+    function orderByPrice($data) {
+        global $orderPrice;
+        if (!empty($data)) {
+            foreach ($data as $key => $row) {
+                $orderPrice[$key] = $row["productPrice"];
             }
         }
+        return $orderPrice;
     }
 
-    catch(PDOException $e){
-        echo "Connexion non établie: " . $e -> getMessage();
+    // Product type sorting
+    if ((!empty($_POST["productType"])) && ($_POST["productType"] !== "default"))  {
+        // a product type is selected
+        $data = array();
+        $_SESSION["result"] = $_SESSION["AllProductsData"];
+
+        foreach ($_SESSION["result"] as $row) {
+
+            if ( $row["productType"] !== $_POST["productType"] ) {
+                continue;
+            }
+
+            array_push($data, $row);
+        }
+
+        // The following array receives the selected products
+        $_SESSION["result"] = $data;
+
+    } else if ((!empty($_POST["productType"])) && ($_POST["productType"] == "default")) {
+        // Default value in the select is selected
+        $_SESSION["result"] = $_SESSION["AllProductsData"];
     }
-    catch(Exception $e) {
-        echo "Erreur : ";
-        var_dump($e->getMessage());
+    // Otherwise, the -- $_SESSION["result"] -- stays unchanged
+
+
+    // Product price sorting
+    if (!empty($_POST["descendantPrice"])) {
+        array_multisort(orderByPrice($_SESSION["result"]), SORT_DESC, $_SESSION["result"]);
+    } else if (!empty($_POST["ascendantPrice"])) {
+        array_multisort(orderByPrice($_SESSION["result"]), SORT_ASC, $_SESSION["result"]);
     }
+
 ?>

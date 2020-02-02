@@ -1,7 +1,7 @@
 
 @import "HeaderViewCSS.css";
 @import "FooterViewCSS.css";
-@import "AddRetrieveButtonsCSS.css";
+@import "IncrementDecrementButtonsCSS.css";
 
 .buttonsPosition div{
     margin:auto;
@@ -9,4 +9,14 @@
 
 div.container {
     margin: 50px auto 200px;
+}
+
+.empty_trash_container {
+    margin: 50px auto 200px auto;
+    border-style: dashed;
+}
+
+.cart_image {
+    width: 100px;
+    height: 100px;
 }

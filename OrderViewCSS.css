@@ -1,11 +1,6 @@
 
 @import "HeaderViewCSS.css";
 @import "FooterViewCSS.css";
-@import "IncrementDecrementButtonsCSS.css";
-
-.productImage img {
-    width: 480px;
-}
 
 div.container {
     margin: 50px auto 200px;

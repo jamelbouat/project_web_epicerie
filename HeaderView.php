@@ -1,14 +1,16 @@
 
 <?php
     // Never display this current page, redirect to ShopProductView
-    strpos($_SERVER["SCRIPT_NAME"], "HeaderView.php" ) && header("location:AllProductsView.php");
+    strpos($_SERVER["SCRIPT_NAME"], "HeaderView.php" ) && header("location:index.php");
+
+    include("HeaderViewController.php");
 ?>
 
 <header>
     <div class="bg-secondary p-2"></div>
     <div class="bg-dark d-flex justify-content-between">
         <div class="logoLink d-flex d-row text-white p-2">
-            <a href="AllProductsView.php">
+            <a href="index.php">
                 <span class="fas fa-store-alt fa-2x"></span>
                 <span class="p-2 font-weight-bold">Rennes Épicerie</span>
             </a>
@@ -25,7 +27,7 @@
 
                 <!-- First popover : my account popover-->
                 <div id="pop-over-1" class="d-none">
-                    <div class="popover-title ">
+                    <div class="popover-title">
                         <h5 class="text-center">Votre compte</h5>
                     </div>
                     <div class="popover-body">
@@ -70,15 +72,24 @@
             <div class="p-3">
                 <a href="CartView.php" data-toggle="popover" data-placement="bottom" data-popover-content="#pop-over-2">
                     <span class="fas fa-shopping-cart"></span>
-                    <span class="bg-danger px-1 rounded-circle">01</span>
+                    <span class="quantity_cart_style bg-danger p-1 m-1 rounded-circle"><?php echo $_SESSION["total_quantity"]; ?></span>
                     <span>article</span>
                     <span class="fas fa-sort-down"></span>
                 </a>
                 <div id="pop-over-2" class="d-none">
-                    <div class="popover-title ">
+                    <div class="popover-title">
                         <h5 class="text-center">Votre panier</h5>
                     </div>
-                    <div class="popover-body">Vous avez sélectionnez </div>
+                    <div class="popover-body">
+                        <?php
+                            if (empty($_SESSION["cart_products"])) {
+                        ?>
+                            <div class="m-2">Votre panier est vide !</div>
+                        <?php } else {
+                                displayCartContentPopover();
+                            }
+                        ?>
+                    </div>
                 </div>
             </div>
 

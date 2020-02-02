@@ -32,7 +32,7 @@
 ?>
     <div class="container mx-auto">
         <div class="float-right">
-            <a href="AllProductsView.php"><button class="btn btn-success">Commcencer mes achats</button></a>
+            <a href="index.php"><button class="btn btn-success">Commcencer mes achats</button></a>
         </div>
         <h2>Mon compte</h2>
 

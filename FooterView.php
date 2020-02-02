@@ -1,7 +1,7 @@
 
 <?php
     // Never display this current page, redirect to ShopProductView
-    strpos($_SERVER["SCRIPT_NAME"], "FooterView.php" ) && header("location:AllProductsView.php");
+    strpos($_SERVER["SCRIPT_NAME"], "FooterView.php" ) && header("location:index.php");
 ?>
 
 <footer>

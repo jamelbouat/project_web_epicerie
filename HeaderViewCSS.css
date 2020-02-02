@@ -1,4 +1,6 @@
 
+@import "CartElementPopoverCSS.css";
+
 .popover-link a, .logoLink a {
     text-decoration: none;
     color: white;
@@ -8,4 +10,10 @@
     opacity: 0.5;
     text-decoration: none;
     color: white;
+}
+
+div.popover-body {
+    overflow: auto;
+    max-height: 275px;
+    max-width: 280px;
 }

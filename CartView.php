@@ -1,6 +1,7 @@
 
 <?php
     session_start();
+    include("cartController.php");
 ?>
 
 <!DOCTYPE html>
@@ -28,82 +29,80 @@
 include("HeaderView.php");
 ?>
     <div class="container">
-        <div class="backward-link"><a class="text-dark" href="AllProductsView.php" title="Retour à la page produits"><- Retour à la page des produits</a></div>
+        <div class="backward-link"><a class="text-dark" href="index.php" title="Retour à la page produits"><- Retour à la page des produits</a></div>
         <h1 class="text-center">Mon panier</h1>
+
         <div class="border border-light rounded shadow p-2 my-3">
-            <div class="text-right py-2">
-                <a href="">
-                    <button class="btn btn-danger"> Vider le panier <span class="far fa-trash-alt"></span></button>
-                </a>
-            </div>
-            <div class="cartTable">
-                <table class="table table-hover text-center">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th>Produit</th>
-                        <th>Quantité</th>
-                        <th>Prix</th>
-                        <th>Supprimer</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>....</td>
-                        <td><div class="buttonsPosition"><?php include("AddRetrieveButtons.php") ?></div></td>
-                        <td>....</td>
-                        <td><span class="far fa-trash-alt fa-2x" title="Supprimer"></span></td>
-                    </tr>
-                    <tr>
-                        <td>....</td>
-                        <td>....</td>
-                        <td>....</td>
-                        <td><span class="far fa-trash-alt fa-2x" title="Supprimer"></span></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <table class="table">
-                    <thead class="thead-light">
-                    <tr>
-                        <th>Nombre d'articles</th>
-                        <th>Prix total</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>.....</td>
-                        <td>.....</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div class="text-right">
-                    <button class="btn btn-success my-2" data-toggle="modal" data-target="#showModal">Commander</button>
-                </div>
-                <div class="modal fade" id="showModal">
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <div class="modal-content">
 
-                            <div class="modal-header bg-light">
-                                <h4 class="modal-title">Payement</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <?php
+                if (!empty($_SESSION["cart_products"])) {
+                    ?>
+                    <!-- The following section is displayed if the cart contains products -->
+                    <div>
+                        <div class="text-right py-2">
+                            <a href="CartQuantityChangedController.php?emptyCart=1">
+                                <button class="btn btn-danger">
+                                    Vider le panier
+                                    <span class="far fa-trash-alt ml-2"></span>
+                                </button>
+                            </a>
+                        </div>
+                        <div>
+                            <!-- Cart table view -->
+                            <div>
+                                <table class="table table-hover text-center">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th>Produit</th>
+                                        <th>Quantité</th>
+                                        <th>Prix</th>
+                                        <th>Supprimer</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <?php viewCartProducts(); ?>
+
+                                        <tr class="table-success">
+                                            <td colspan="2">
+                                                <h6>Nombre d'articles</h6>
+                                                <div class="font-weight-bold"><?php echo $_SESSION["allProductQuantity"]; ?></div>
+                                            </td>
+                                            <td colspan="2">
+                                                <h6>Prix total</h6>
+                                                <div class="font-weight-bold"><?php echo $_SESSION["allProductsPrice"]; ?> €</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
 
-                            <div class="modal-body">
-                                Somme à payer.........
-                            </div>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                            <!-- Order button -->
+                            <div class="text-right">
+                                <a href="OrderView.php">
+                                    <button class="btn btn-success my-2">
+                                        Commander
+                                    </button>
+                                </a>
                             </div>
 
                         </div>
                     </div>
-                </div>
 
+                    <?php
+                } else if (empty($_SESSION["cart_products"])) {
+            ?>
+                    <!-- The following section is displayed if the cart does not contain products -->
+                    <div class="empty_trash_container text-center p-3">
+                        <h5>Votre panier est vide</h5>
+                        <a href="index.php" class="text-white text-decoration-none">
+                            <button class="btn btn-success m-3">Commencer vos achats</button>
+                        </a>
+                    </div>
+            <?php
+                };
+            ?>
         </div>
-
-
-        </div>
-
     </div>
 
 <?php

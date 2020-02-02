@@ -1,7 +1,7 @@
 
 <?php
     session_start();
-    !isset($_SESSION["adminFlag"]) && header("location:AllProductsView.php");
+    !isset($_SESSION["adminFlag"]) && header("location:index.php");
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-    <script src="AddProductsViewScript.js"></script>
+    <script src="AddNewProductsViewScript.js"></script>
     <title>Ajout produits</title>
 </head>
 <body>
