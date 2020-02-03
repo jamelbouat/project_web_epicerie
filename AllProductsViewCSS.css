@@ -3,6 +3,16 @@
 @import "FooterViewCSS.css";
 @import "ListedProductCSS.css";
 
-div.container {
-    margin: 80px auto 240px;
+@media only screen and (min-width: 1367px) {
+
+    div.container {
+        margin: 80px auto 280px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+
+    div.container {
+        margin: 80px auto;
+    }
 }

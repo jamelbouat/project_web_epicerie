@@ -5,7 +5,7 @@ function addImageCheck($image, $imageSize) {
     $target_dir = "images/";
     $target_file = $target_dir.$image;
     $uploadCheckValue = 1;
-    $imageMaxSize = 2097152;
+    $imageMaxSize = 1000000;
     $imageFileType = strtolower(pathinfo($image,PATHINFO_EXTENSION));
 
     // Check if the image already exists in the folder images

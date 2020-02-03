@@ -2,14 +2,16 @@
 @import "HeaderViewCSS.css";
 @import "FooterViewCSS.css";
 
-div.list-group-item {
-    height: 55px;
+@media only screen and (min-width: 1367px) {
+
+    div.container {
+        margin: 80px auto 320px;
+    }
 }
 
-.list-group-item div:first-child {
-    width: 120px;
-}
+@media only screen and (max-width: 1366px) {
 
-div.container {
-    margin: 80px auto 220px;
+    div.container {
+        margin: 70px auto;
+    }
 }

@@ -7,10 +7,6 @@
     margin:auto;
 }
 
-div.container {
-    margin: 50px auto 200px;
-}
-
 .empty_trash_container {
     margin: 50px auto 200px auto;
     border-style: dashed;
@@ -19,4 +15,19 @@ div.container {
 .cart_image {
     width: 100px;
     height: 100px;
+}
+
+
+@media only screen and (min-width: 1367px) {
+
+    div.container {
+        margin: 80px auto 200px;
+    }
+}
+
+@media only screen and (max-width: 1366px) {
+
+    div.container {
+        margin: 10px auto 40px;
+    }
 }
