@@ -1,8 +1,6 @@
-<?php
-    session_start();
+<?php session_start();
     include("OrderController.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,7 +21,6 @@
     <title>Ma commande</title>
 </head>
 <body>
-
 <?php
 include("HeaderView.php");
 ?>
@@ -87,10 +84,8 @@ include("HeaderView.php");
             </div>
         </div>
     </div>
-
 <?php
 include("FooterView.php");
 ?>
-
 </body>
 </html>

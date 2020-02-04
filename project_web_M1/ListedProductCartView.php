@@ -1,7 +1,6 @@
 <?php
     function listedProductCartView($productId, $productName, $productScale, $productPrice, $productImage, $productQuantity) {
         $typeValue = array("unit" => "Unité", "kilo" => "Kilo", "liter" => "Litre");
-
 ?>
         <tr>
             <form action="CartQuantityChangedController.php?productId=<?php echo $productId ?>" method="POST">
@@ -26,4 +25,3 @@
 <?php
     }
 ?>
-

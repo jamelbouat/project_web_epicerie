@@ -18,7 +18,7 @@
         empty($_SESSION["phone"]) || empty($_SESSION["allProductQuantity"]) || empty($_SESSION["allProductsPrice"])) {
 
         $_SESSION["requiredLoginMessage"] = "Veuillez-vous connecter avant toute commande !";
-        header("location:loginView.php");
+        echo '<script> window.location.href = "LoginView.php"; </script>';
 
     } else {
         $date = date("d-m-Y");
@@ -35,5 +35,4 @@
         $allProductQuantity = $_SESSION["allProductQuantity"];
         $allProductsPrice = $_SESSION["allProductsPrice"];
     }
-
 ?>

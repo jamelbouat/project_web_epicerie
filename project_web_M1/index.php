@@ -1,13 +1,9 @@
-
-<?php
-
-    session_start();
+<?php session_start();
     include("ViewAllProductsController.php");
 
     // Error check if the product is added or not to the cart, a message error is displayed at the top of the listed products
     $errorAddProductToCart = !empty($_GET["errorAddProductToCart"]) && ($_GET["errorAddProductToCart"] == 1);
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -28,7 +24,6 @@
     <title>Nos produits</title>
 </head>
 <body>
-
 <?php
     include("HeaderView.php");
 ?>
@@ -73,7 +68,6 @@
 
        </div>
     </div>
-
 <?php
     include("FooterView.php");
 ?>

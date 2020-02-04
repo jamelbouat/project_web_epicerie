@@ -1,6 +1,4 @@
-
-<?php
-    session_start();
+<?php session_start();
 
 try {
     $err = "";
@@ -11,8 +9,10 @@ try {
         $pwd = $_POST["pwd"];
 
         if (empty($email) || empty($pwd)) {
+
             $err = "Erreur : au moins un des champs est vide !";
-            header("location:LoginView.php?err=$err");
+            $url = "LoginView.php?err=$err";
+            echo '<script> window.location.href="' . $url . '";</script>';
 
         } else {
             // Customers table preparation, looking for data with the entered email
@@ -33,10 +33,13 @@ try {
                 $_SESSION["phone"] = $data["customerPhone"];
                 $_SESSION["email"] = $data["customerEmail"];
 
-                header("Location:MyAccountView.php");
+                echo '<script> window.location.href = "MyAccountView.php"; </script>';
+
             } else {
+
                 $err = "Erreur d'identification. réessayez svp !";
-                header("location:LoginView.php?err=$err");
+                $url = "LoginView.php?err=$err";
+                echo '<script> window.location.href="' . $url . '";</script>';
             }
         }
     }

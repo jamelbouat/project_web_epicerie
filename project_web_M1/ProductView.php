@@ -1,6 +1,4 @@
-
-<?php
-    session_start();
+<?php session_start();
 
     // Received data from the products list with its characteristics
     function checkFieldData($fieldData) {

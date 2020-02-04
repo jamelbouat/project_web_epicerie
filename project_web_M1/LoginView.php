@@ -1,13 +1,10 @@
-
-<?php
-    session_start();
+<?php session_start();
 
     // User already logged, redirect to his account view
     if (isset($_SESSION["id"])) {
-        header("location:MyAccountView.php");
+        echo '<script> window.location.href = "MyAccountView.php"; </script>';
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -53,6 +50,7 @@
 <?php
     include("FooterView.php");
     unset($_SESSION["successMessage"]);
+    unset($_SESSION["requiredLoginMessage"]);
 ?>
 </body>
 </html>

@@ -1,9 +1,7 @@
-
-<?php
-    session_start();
+<?php session_start();
 
     // Never display the current page, redirect to AllProductsView
-    (isset($_SESSION["id"])) && header("location:index.php");
+    if (isset($_SESSION["id"])) { echo '<script> window.location.href = "index.php"; </script>'; }
 
 try {
     require("DataBaseAccess.php");
@@ -20,7 +18,6 @@ try {
         $stmt = $conn -> prepare($req);
         // Add the data
         $stmt -> execute(array($firstName,$lastName,$address,$city,$phone,$zipCode,$email,$pwd));
-        header("location:loginView.php");
     }
 
     function checkEmptyInput($data) {
@@ -162,10 +159,14 @@ try {
         if ($checkedValue === 8) {
             addToDataBase($firstName,$lastName,$address,$city,$phone,$zipCode,$email,$pwd);
             $_SESSION["successMessage"] = "Vous êtes bien inscrit, connectez-vous au-dessous";
+            echo '<script> window.location.href = "LoginView.php"; </script>';
+
         } else {
             $queryString = "err1=$err1&err2=$err2&err3=$err3&err4=$err4&err5=$err5&err6=$err6&err7=$err7&err8=$err8&err9=$err9&err10=$err10".
              "&lastName=$lastName&firstName=$firstName&address=$address&city=$city&phone=$phone&zipCode=$zipCode&confirmEmail=$confirmEmail&email=$email";
             header("location:NewAccountView.php?$queryString");
+            $url = "NewAccountView.php?$queryString";
+            echo '<script> window.location.href="' . $url . '";</script>';
         }
     }
 }

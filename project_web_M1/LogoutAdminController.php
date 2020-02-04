@@ -1,8 +1,6 @@
-
-<?php
-    session_start();
+<?php session_start();
 
     unset($_SESSION);
     session_destroy();
-    header( "location:AdminAccountView.php");
+    echo '<script> window.location.href = "AdminAccountView.php"; </script>';
 ?>

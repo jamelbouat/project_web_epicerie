@@ -1,6 +1,4 @@
-
-<?php
-    session_start();
+<?php session_start();
 
     // Get the all product prices and put them in array to use it further for sorting them
     $orderPrice = array();
@@ -45,5 +43,4 @@
     } else if (!empty($_POST["ascendantPrice"])) {
         array_multisort(orderByPrice($_SESSION["result"]), SORT_ASC, $_SESSION["result"]);
     }
-
 ?>

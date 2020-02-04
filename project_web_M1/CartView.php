@@ -1,9 +1,7 @@
+<?php session_start();
 
-<?php
-    session_start();
-    include("cartController.php");
+    include("CartController.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -24,7 +22,6 @@
     <title>Mon panier</title>
 </head>
 <body>
-
 <?php
 include("HeaderView.php");
 ?>
@@ -104,10 +101,8 @@ include("HeaderView.php");
             ?>
         </div>
     </div>
-
 <?php
 include("FooterView.php");
 ?>
-
 </body>
 </html>

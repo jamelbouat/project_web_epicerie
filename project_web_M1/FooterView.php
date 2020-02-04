@@ -1,7 +1,6 @@
-
 <?php
-    // Never display this current page, redirect to ShopProductView
-    strpos($_SERVER["SCRIPT_NAME"], "FooterView.php" ) && header("location:index.php");
+    // Never display this current page, redirect to the index
+    if (strpos($_SERVER["SCRIPT_NAME"], "FooterView.php" )) { echo '<script> window.location.href = "index.php"; </script>'; }
 ?>
 
 <footer>

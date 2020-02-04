@@ -1,6 +1,5 @@
+<?php session_start();
 
-<?php
-    session_start();
     // Call an external file to use the function inside it
     include("AddImageCheck.php");
 

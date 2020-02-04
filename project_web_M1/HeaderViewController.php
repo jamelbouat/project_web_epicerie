@@ -1,5 +1,4 @@
 <?php
-
     include("CartElementPopover.php");
 
     if(!empty($_SESSION["cart_products"])){

@@ -1,7 +1,7 @@
+<?php session_start();
 
-<?php
-    session_start();
-    !isset($_SESSION["adminFlag"]) && header("location:index.php");
+    // Only admin user is accepted to ad a new product, redirect to the products page
+    if (!isset($_SESSION["adminFlag"])) { echo '<script> window.location.href = "index.php"; </script>'; }
 ?>
 
 <!DOCTYPE html>
