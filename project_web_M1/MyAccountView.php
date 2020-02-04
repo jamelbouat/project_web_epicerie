@@ -1,12 +1,9 @@
-
-<?php
-    session_start();
+<?php session_start();
     // User not already logged, redirect to his login view
     if (!isset($_SESSION["id"])) {
-        header("location:LoginView.php");
+        echo '<script> window.location.href = "loginView.php"; </script>';
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -43,23 +40,23 @@
                 <button id="onModifyEvent" class="btn btn-info float-right" data-toggle="modal" data-target="#showModal">Modifier mes informations</button>
             </div>
             <div class="list-group-item list-group-item-action d-flex d-row">
-                <div>Adresse : </div>
+                <div>Adresse : &nbsp; </div>
                 <div class="notModifiedData"><?php echo $_SESSION["address"] ?></div>
             </div>
             <div class="list-group-item list-group-item-action d-flex d-row">
-                <div>Code postal : </div>
+                <div>Code postal : &nbsp; </div>
                 <div class="notModifiedData"><?php echo $_SESSION["zipCode"] ?></div>
             </div>
             <div class="list-group-item list-group-item-action d-flex d-row">
-                <div>Ville : </div>
+                <div>Ville : &nbsp; </div>
                 <div class="notModifiedData"><?php echo $_SESSION["city"] ?></div>
             </div>
             <div class="list-group-item list-group-item-action d-flex d-row">
-                <div>Téléphone : </div>
+                <div>Téléphone : &nbsp; </div>
                 <div class="notModifiedData"><?php echo $_SESSION["phone"] ?></div>
             </div>
             <div class="list-group-item list-group-item-action d-flex d-row">
-                <div>Email : </div>
+                <div>Email : &nbsp; </div>
                 <div class="notModifiedData"><?php echo $_SESSION["email"] ?></div>
             </div>
         </div>

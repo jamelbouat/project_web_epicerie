@@ -4,6 +4,7 @@
 .productImage img {
     width: 240px;
     border : 1px solid;
+    height : 180px;
 }
 
 .productImage img:hover {

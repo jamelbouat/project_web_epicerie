@@ -21,7 +21,6 @@
             listedProductCartView($productId, $productName, $productScale, $productPrice, $productImage, $productQuantity);
         }
     }
-
 ?>
 
 

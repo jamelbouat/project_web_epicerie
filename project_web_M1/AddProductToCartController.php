@@ -1,6 +1,4 @@
-<?php
-
-    session_start();
+<?php session_start();
 
     // Check if the data is well received by the controller
     if (!empty($_GET["productId"]) && !empty($_GET["productName"]) && !empty($_GET["productScale"]) && !empty($_GET["productPrice"]) &&
@@ -18,12 +16,12 @@
             addProductToCart();
         }
 
-        header("location:index.php");
+        echo '<script> window.location.href = "index.php"; </script>';
 
     } else {
 
         // Error send the index page view, and mention that the product is not added to the cart
-        header("location:index.php?errorAddProductToCart=1");
+        echo '<script> window.location.href = "index.php?errorAddProductToCart=1"; </script>';
     }
 
     function addProductToCart() {

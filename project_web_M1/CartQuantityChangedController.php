@@ -1,5 +1,4 @@
-<?php
-    session_start();
+<?php session_start();
 
     if (!empty($_GET["emptyCart"]) && $_GET["emptyCart"] == 1 ) {
         unset($_SESSION["cart_products"]);
@@ -24,12 +23,11 @@
 
             if ($productId == $key) {
                 $_SESSION["cart_products"][$key]["productQuantity"] = $newQuantity;
-                header("location:cartView.php");
+                echo '<script> window.location.href = "CartView.php"; </script>';
             }
         }
 
     } else {
-        header("location:cartView.php");
+        echo '<script> window.location.href = "CartView.php"; </script>';
     };
-
 ?>

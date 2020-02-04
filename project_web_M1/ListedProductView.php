@@ -1,7 +1,6 @@
-
 <?php
     // Never display this current page, redirect to ShopProductView
-    strpos($_SERVER["SCRIPT_NAME"], "ListedProductView.php" ) && header("location:index.php");
+    if (strpos($_SERVER["SCRIPT_NAME"], "ListedProductView.php" )) { echo '<script> window.location.href = "index.php"; </script>'; }
 
     // Listed product view is the product presentation in the listed products (index.php)
     function listedProductView($productId, $productName, $productScale, $productPrice, $productDescription, $productType, $productImage) {

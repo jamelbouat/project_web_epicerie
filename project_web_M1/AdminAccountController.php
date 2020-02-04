@@ -1,6 +1,4 @@
-
-<?php
-    session_start();
+<?php session_start();
 
 try {
     require("DataBaseAccess.php");
@@ -12,7 +10,8 @@ try {
 
         if (empty($login) || empty($pwd)) {
             $err = "Erreur : au moins un des champs est vide !";
-            header("location:AdminAccountView.php?error=$err");
+            $url = "AdminAccountView.php?error=$err";
+            echo '<script> window.location.href="' . $url . '";</script>';
 
         } else {
             // Customers table preparation, looking for data with the entered email
@@ -23,10 +22,13 @@ try {
 
             if ($data) {
                 $_SESSION["adminFlag"] = true;
-                header("Location:AddNewProductsView.php");
+                echo '<script> window.location.href = "AddNewProductsView.php"; </script>';
+
             } else {
+
                 $err = "Erreur d'identification. réessayez svp !";
-                header("location:AdminAccountView.php?error=$err");
+                $url = "AdminAccountView.php?error=$err";
+                echo '<script> window.location.href="' . $url . '";</script>';
             }
         }
     }

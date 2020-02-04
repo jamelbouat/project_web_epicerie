@@ -1,7 +1,6 @@
-
 <?php
-    // Never display this current page, redirect to ShopProductView
-    strpos($_SERVER["SCRIPT_NAME"], "IncrementDecrementButtons.php" ) && header("location:index.php");
+    // Never display this current page, redirect to the index
+    if (strpos($_SERVER["SCRIPT_NAME"], "IncrementDecrementButtons.php")) { echo '<script> window.location.href = "index.php"; </script>'; }
 ?>
 <!--
     Two buttons increment and decrement the product quantity, there are 2 div's to display the quantity
