@@ -10,6 +10,8 @@ try {
     $regex_zip_code = "/^[0-9]{5}$/";  // regex, accepts only a number of 5 digits
     $regex_phone_number = "/^[0]{1}[0-9]{9}$/";  // regex, begin with a 0 and followed with 9 digits
 
+    $err1 = $err2= $err3= $err4= $err5= $err6 = $err7 = $err8 = $err9 = $err10 = "";
+
     function addToDataBase($firstName,$lastName,$address,$city,$phone,$zipCode,$email,$pwd) {
         global $conn;
         $req = "INSERT INTO customers (customerFirstName, customerLastName, customerAddress, customerCity, customerPhone, customerPostalCode, customerEmail, customerPassword)
